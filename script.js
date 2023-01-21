@@ -66,10 +66,17 @@ function getMoSal() {
     employeeSal += empArr[i].annualSalary;
   }
   let moEmpSal = employeeSal / 12;
+  if (moEmpSal > 20000) {
+    console.log(`over $20K`);
+    $(`.inline`).addClass(`red`);
+  } else {
+    $(`.inline`).removeClass(`red`);
+  }
   return ` $` + Math.round(100 * moEmpSal) / 100;
 }
 
-console.log(getMoSal(empArr));
+let moEmpSal = getMoSal(empArr);
+console.log(moEmpSal);
 
 function render() {
   console.log(`in render`, empArr);
@@ -95,9 +102,4 @@ function render() {
 
   $(`#monthlyCost`).empty();
   $(`#monthlyCost`).append(getMoSal);
-
-  if ($(`#monthlyCost`) > 20000) {
-    console.log(`over $20K`);
-    $(`.inline`).addClass(`red`);
-  }
 }
