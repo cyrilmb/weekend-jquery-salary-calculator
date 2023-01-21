@@ -16,17 +16,17 @@
     <h2>Add Employee</h2>
 
     <form id="salaryForm">
-        <input id="firstNameInput" type="text" placeholder="First Name" required>
-        <input id="lastNameInput" type="text" placeholder="Last Name" required>
-        <input id="idNumberInput" type="text" placeholder="ID Number" required>
-        <input id="titleInput" type="text" placeholder="Title" required>
-        <input id="annualSalaryInput" type="text" placeholder="Annual Salary" required>
+        <input id="firstNameInput" type="text" placeholder="First Name">
+        <input id="lastNameInput" type="text" placeholder="Last Name">
+        <input id="idNumberInput" type="text" placeholder="ID Number">
+        <input id="titleInput" type="text" placeholder="Title">
+        <input id="annualSalaryInput" type="text" placeholder="Annual Salary">
         <input id="submitButton" type="submit" value="Submit">
     </form>
 
     <h2>Employees</h2>
 
-    <table>
+    <table id="salaryTable">
         <thead>
             <tr>
                 <th>First Name</th>
@@ -34,13 +34,14 @@
                 <th>ID Number</th>
                 <th>Title</th>
                 <th>Annual Salary</th>
+                <th>remove</th>
             </tr>
         </thead>
-        <tbody id="salaryTable">
+        <tbody id="salaryTableBody">
     <!--TABLE FROM JS-->
         </tbody>
     </table>
 
-    <h2 id="monthlyCost">Total Montly Cost:</h2>
+    <h2 class="inline">Total Montly Cost:</h2><span class="inline" id="monthlyCost"></span>
 </body>
 </html>

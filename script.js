@@ -6,14 +6,14 @@ let empArr = [
     lastName: `of Kiev`,
     idNumber: 777,
     title: `Princess`,
-    annualSalary: 444,
+    annualSalary: 1,
   },
   {
     firstName: `Lady`,
     lastName: `Bathory`,
     idNumber: 666,
     title: `Countess`,
-    annualSalary: 999,
+    annualSalary: 1,
   },
 ];
 
@@ -60,31 +60,24 @@ function onDeleteEmployee() {
   render();
 }
 
-function getAnnualSal(empArr) {
+function getMoSal() {
   let employeeSal = 0;
   for (let i = 0; i < empArr.length; i++) {
     employeeSal += empArr[i].annualSalary;
   }
-  return employeeSal;
+  let moEmpSal = employeeSal / 12;
+  return ` $` + Math.round(100 * moEmpSal) / 100;
 }
 
-console.log(getAnnualSal(empArr));
-
-function moCostFunc() {
-  let moCost = 10;
-
-  moCost += empArr[`annualSalary`];
-
-  return ` $` + moCost;
-}
+console.log(getMoSal(empArr));
 
 function render() {
   console.log(`in render`, empArr);
 
-  $(`#salaryTable`).empty();
+  $(`#salaryTableBody`).empty();
 
   for (let emp of empArr) {
-    $(`#salaryTable`).append(`
+    $(`#salaryTableBody`).append(`
         <tr>
             <td>${emp.firstName}</td>
             <td>${emp.lastName}</td>
@@ -100,5 +93,11 @@ function render() {
     `);
   }
 
-  $(`#monthlyCost`).append(moCostFunc);
+  $(`#monthlyCost`).empty();
+  $(`#monthlyCost`).append(getMoSal);
+
+  if ($(`#monthlyCost`) > 20000) {
+    console.log(`over $20K`);
+    $(`.inline`).addClass(`red`);
+  }
 }

@@ -1,0 +1,22 @@
+.inline {
+    display: inline;
+}
+
+.red {
+    background-color: red;
+}
+
+#salaryTable {
+    border: 3px solid;
+}
+
+td {
+    border: 1px solid;
+    text-align: right;
+    background-color: rgb(207, 205, 205);
+}
+
+th {
+    border: 2px solid;
+    background-color: darkgray;
+}
