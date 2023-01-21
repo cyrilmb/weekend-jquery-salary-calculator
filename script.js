@@ -5,8 +5,15 @@ let empArr = [
     firstName: `Olga`,
     lastName: `of Kiev`,
     idNumber: 777,
-    title: `Countess`,
+    title: `Princess`,
     annualSalary: 444,
+  },
+  {
+    firstName: `Lady`,
+    lastName: `Bathory`,
+    idNumber: 666,
+    title: `Countess`,
+    annualSalary: 999,
   },
 ];
 
@@ -53,6 +60,24 @@ function onDeleteEmployee() {
   render();
 }
 
+function getAnnualSal(empArr) {
+  let employeeSal = 0;
+  for (let i = 0; i < empArr.length; i++) {
+    employeeSal += empArr[i].annualSalary;
+  }
+  return employeeSal;
+}
+
+console.log(getAnnualSal(empArr));
+
+function moCostFunc() {
+  let moCost = 10;
+
+  moCost += empArr[`annualSalary`];
+
+  return ` $` + moCost;
+}
+
 function render() {
   console.log(`in render`, empArr);
 
@@ -74,4 +99,6 @@ function render() {
         </tr>
     `);
   }
+
+  $(`#monthlyCost`).append(moCostFunc);
 }
