@@ -1,11 +1,22 @@
 $(document).ready(onReady);
 
-let empArr = [];
+let empArr = [
+  {
+    firstName: `Olga`,
+    lastName: `of Kiev`,
+    idNumber: 777,
+    title: `Countess`,
+    annualSalary: 444,
+  },
+];
 
 function onReady() {
   console.log(`gettin reedddy`);
 
+  render();
+
   $(`#salaryForm`).on(`submit`, onAddEmployee);
+  $(document).on(`click`, `#deleteEmpButton`, onDeleteEmployee);
 }
 
 function onAddEmployee(evt) {
@@ -15,9 +26,9 @@ function onAddEmployee(evt) {
   let newEmp = {
     firstName: $(`#firstNameInput`).val(),
     lastName: $(`#lastNameInput`).val(),
-    idNumber: $(`#idNumberInput`).val(),
+    idNumber: Number($(`#idNumberInput`).val()),
     title: $(`#titleInput`).val(),
-    annualSalary: $(`#annualSalaryInput`).val(),
+    annualSalary: Number($(`#annualSalaryInput`).val()),
   };
 
   $(`#firstNameInput`).val(``);
@@ -28,6 +39,18 @@ function onAddEmployee(evt) {
 
   empArr.push(newEmp);
   console.log(`New Employee:`, empArr);
+
+  render();
+}
+
+function onDeleteEmployee() {
+  let indexOfEmpArr = $(this).parent().parent().index();
+
+  empArr.splice(indexOfEmpArr, 1);
+
+  console.log(`deleted empolyee`, empArr);
+
+  render();
 }
 
 function render() {
@@ -42,7 +65,7 @@ function render() {
             <td>${emp.lastName}</td>
             <td>${emp.idNumber}</td>
             <td>${emp.title}</td>
-            <td>${emp.annualSalary}</td>
+            <td>$${emp.annualSalary}</td>
             <td>
                 <button id="deleteEmpButton">
                     Delete
