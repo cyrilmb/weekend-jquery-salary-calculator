@@ -1,5 +1,26 @@
+#addForm{
+    background-color:rgb(252, 128, 74);
+    padding: 0px 0px 5px 5px;
+}
+
+body{
+    background-color: rgb(245, 215, 176);
+}
+
+#costClass {
+    padding: 9px 0px 5px 220px;
+}
+
+h1 {
+    border: 3px solid rgb(120, 31, 6);
+}
+
 .inline {
     display: inline;
+}
+
+#monthlyCost {
+    font-size: 1.5em;
 }
 
 .red {
@@ -8,6 +29,11 @@
 
 #salaryTable {
     border: 3px solid;
+}
+
+.tableClass {
+    background-color: rgb(216, 87, 40);
+    padding: 0px 0px 5px 5px;
 }
 
 td {
@@ -20,3 +46,4 @@ th {
     border: 2px solid;
     background-color: darkgray;
 }
+

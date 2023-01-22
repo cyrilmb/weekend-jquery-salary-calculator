@@ -6,14 +6,14 @@ let empArr = [
     lastName: `of Kiev`,
     idNumber: 777,
     title: `Princess`,
-    annualSalary: 1,
+    annualSalary: 444,
   },
   {
     firstName: `Lady`,
     lastName: `Bathory`,
     idNumber: 666,
     title: `Countess`,
-    annualSalary: 1,
+    annualSalary: 999,
   },
 ];
 
@@ -75,8 +75,7 @@ function getMoSal() {
   return ` $` + Math.round(100 * moEmpSal) / 100;
 }
 
-let moEmpSal = getMoSal(empArr);
-console.log(moEmpSal);
+console.log(getMoSal(empArr));
 
 function render() {
   console.log(`in render`, empArr);
